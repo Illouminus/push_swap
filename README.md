@@ -9,7 +9,7 @@
 </div>
 <h3 align="left">Installation Instructions:</h3>
 <p align="left">
-    git clone https://github.com/your_username/push_swap.git<br>
+    git clone https://github.com/Illouminus/push_swap.git<br>
     cd push_swap<br>
     make<br>
 </p>
