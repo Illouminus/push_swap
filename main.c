@@ -6,9 +6,13 @@
 /*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:47:48 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/07 18:58:27 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/08 20:58:01 by edouard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void check_entries()
+{
+}
 
 int main(int argc, char **argv)
 {
