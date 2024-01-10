@@ -6,7 +6,7 @@
 /*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 14:12:35 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/10 18:12:46 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/10 18:35:08 by edouard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,17 @@ t_stack *find_last(t_stack *stack) // Define a function that returns the pointer
 	while (stack->next) // Loop until the end of the stack is reached
 		stack = stack->next;
 	return (stack);
+}
+
+bool stack_is_sorted(t_stack *stack) // Define a function that returns true if the stack is sorted
+{
+	if (!stack)
+		return (1);
+	while (stack->next) // Loop until the end of the stack is reached
+	{
+		if (stack->value > stack->next->value) // If the current node's value is greater than the next node's value
+			return (false);							// Return false
+		stack = stack->next;							// Move to the next node
+	}
+	return (true); // Return true
 }

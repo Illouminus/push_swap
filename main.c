@@ -6,7 +6,7 @@
 /*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:47:48 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/09 19:02:08 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/10 18:23:05 by edouard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,10 @@ int main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 	}
 	init_stack_a(&a, argv + 1);
+	if (!stack_is_sorted(a))
+	{
+		/* code */
+	}
+
 	return (0);
 }
