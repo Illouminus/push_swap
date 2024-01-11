@@ -5,6 +5,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "./printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -26,5 +27,11 @@ long ft_atoi(const char *nptr);
 t_stack *find_last(t_stack *stack);
 void init_stack_a(t_stack **a, char **argv);
 void add_node_append(t_stack **a, int num);
-
+bool stack_is_sorted(t_stack *stack);
+int stack_len(t_stack *stack);
+t_stack *find_biggest(t_stack *stack);
+void rotate_stack(t_stack **stack);
+void ra(t_stack **a, bool print);
+void rb(t_stack **b, bool print);
+void rr(t_stack **a, t_stack **b, bool print);
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:47:48 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/10 18:23:05 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/11 09:20:14 by edouard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ int main(int argc, char **argv)
 	init_stack_a(&a, argv + 1);
 	if (!stack_is_sorted(a))
 	{
-		/* code */
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+		else
+			sort_stack(&a, &b);
 	}
 
 	return (0);
