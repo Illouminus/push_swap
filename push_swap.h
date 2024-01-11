@@ -53,4 +53,5 @@ void move_a_to_b(t_stack **a, t_stack **b);
 void move_b_to_a(t_stack **a, t_stack **b);
 void set_target_b(t_stack *a, t_stack *b);
 void init_nodes_b(t_stack *a, t_stack *b);
+static void min_on_top(t_stack **a);
 #endif
