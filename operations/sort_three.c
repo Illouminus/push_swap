@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 09:26:42 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 22:21:29 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 15:15:45 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void sort_three(t_stack **a)
 {
@@ -57,16 +57,5 @@ void ready_push(t_stack **stack, t_stack *top_node, char stack_name)
 			else
 				rrb(stack, false);
 		}
-	}
-}
-
-static void min_on_top(t_stack **a)
-{
-	while ((*a)->value != find_min(*a)->value)
-	{
-		if (find_min(*a)->is_median)
-			ra(a, false);
-		else
-			rra(a, false);
 	}
 }

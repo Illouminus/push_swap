@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 22:33:07 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 22:36:00 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:58:46 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void set_target_b(t_stack *a, t_stack *b)
 {

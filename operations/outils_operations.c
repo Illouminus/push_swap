@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   outils_operations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 09:38:47 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 21:17:52 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:58:42 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_stack *find_biggest(t_stack *stack)
 {

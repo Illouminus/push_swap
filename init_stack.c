@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 14:03:12 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 21:27:22 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 15:42:00 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void init_stack_a(t_stack **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			exit_error(a);
+			exit_error(*a);
 		num = ft_atoi(argv[i]);
-		if (num > INT_MAX || num < INT_MIN || check_duplicates(*a, num))
-			exit_error(a);
+		if (num > INT_MAX || num < INT_MIN || check_duplicates(*a, (int)num))
+			exit_error(*a);
 		add_node_append(a, num);
 		i++;
 	}

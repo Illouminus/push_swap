@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rrr_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:50:12 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 21:51:51 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:57:47 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void rev_rotate(t_stack **stack)
+void rev_rotate(t_stack **stack)
 {
 	t_stack *last;
 

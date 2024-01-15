@@ -1,28 +1,37 @@
-NAME = push_swap.a
-CC = gcc
+NAME = push_swap
+CC = gcc -g
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = .
+INCLUDES = -I./printf
 
-SRCS = ft_printf.c ft_print_pointer.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c
+LIBFTPRINTF = ./printf/libftprintf.a
+
+SRCS = operations/init_b.c operations/move.c operations/outils_operations.c \
+       operations/push.c operations/rotate.c operations/rrr_rotate.c \
+       operations/sort_three.c operations/swap.c \
+       check_errors.c ft_atoi.c ft_calloc.c ft_split.c init_stack.c \
+       push_swap.c sort_stack.c utils.c
+
 OBJS = $(SRCS:.c=.o)
-LIBC = ar rc
-LIBR = ranlib
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(LIBC) $(NAME) $(OBJS)
-	$(LIBR) $(NAME)
+$(NAME): $(LIBFTPRINTF) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTPRINTF)
+
+$(LIBFTPRINTF):
+	make -C ./printf
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
 	$(RM) $(OBJS)
+	make -C ./printf clean
 
 fclean: clean
 	$(RM) $(NAME)
+	make -C ./printf fclean
 
 re: fclean all
 

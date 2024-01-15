@@ -2,6 +2,7 @@
 #define PUSH_SWAP_H
 
 #include <stdbool.h>
+#include <stdint.h>
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,11 +48,27 @@ void rotate_stack(t_stack **stack);
 void ra(t_stack **a, bool print);
 void rb(t_stack **b, bool print);
 void rr(t_stack **a, t_stack **b, bool print);
-static void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
-static void rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
+void rev_rotate(t_stack **stack);
+void rra(t_stack **a, bool print);
+void rrb(t_stack **b, bool print);
+void pa(t_stack **a, t_stack **b, bool print);
+void pb(t_stack **b, t_stack **a, bool print);
+void push(t_stack **dst, t_stack **src);
+void rrr(t_stack **a, t_stack **b, bool print);
+void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
+void rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
 void move_a_to_b(t_stack **a, t_stack **b);
 void move_b_to_a(t_stack **a, t_stack **b);
 void set_target_b(t_stack *a, t_stack *b);
+void init_nodes_a(t_stack *a, t_stack *b);
 void init_nodes_b(t_stack *a, t_stack *b);
-static void min_on_top(t_stack **a);
+void min_on_top(t_stack **a);
+void	swap(t_stack **head);
+void	sa(t_stack	**a, bool print);
+void	sb(t_stack **b, bool print);
+void	ss(t_stack **a, t_stack **b, bool print);
+int error_syntax(char *str);
+int check_duplicates(t_stack *a, int num);
+void free_stack(t_stack *a);
+void exit_error(t_stack *a);
 #endif

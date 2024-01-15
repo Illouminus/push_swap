@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 22:06:38 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 22:08:26 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:57:34 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void push(t_stack **dst, t_stack **src)
+void push(t_stack **dst, t_stack **src)
 {
 	t_stack *push_node;
 

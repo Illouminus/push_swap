@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:28:22 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 22:29:41 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:58:43 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
 	while (*b != cheapest_node->target_node && *a != cheapest_node)
 		rr(a, b, false);
@@ -20,7 +20,7 @@ static void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 	current_index(*b);
 }
 
-static void rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+void rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
 	while (*b != cheapest_node->target_node && *a != cheapest_node)
 		rrr(a, b, false);

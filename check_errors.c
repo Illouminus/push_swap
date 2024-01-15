@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 14:11:31 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/10 16:30:37 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 16:07:38 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 int error_syntax(char *str)
 {
 	if (!(*str == '-' || *str == '+') && !ft_isdigit(*str))
-		return (1);
+		{
+		printf("HERE");	
+return (1);
+		}
+		
 	while (*++str)
 	{
 		if (!ft_isdigit(*str))

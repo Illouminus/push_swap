@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:24:41 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/11 22:43:15 by edouard          ###   ########.fr       */
+/*   Updated: 2024/01/15 15:16:07 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void set_cheapest(t_stack *a)
 	cheapest_node->cheapest = true;
 }
 
-static void min_on_top(t_stack **a)
+void min_on_top(t_stack **a)
 {
 	while ((*a)->value != find_min(*a)->value)
 	{
