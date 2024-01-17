@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:47:48 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/15 16:24:52 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/01/17 09:59:23 by edouard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Функция для печати стека
-void print_stack(t_stack *stack)
-{
-    if (!stack)
-    {
-        printf("Стек пуст.\n");
-        return;
-    }
-    printf("Стек содержит:\n");
-    while (stack)
-    {
-        printf("%d ", stack->value);
-        stack = stack->next;
-    }
-    printf("\n");
-}
-
+// void print_stack(t_stack *stack)
+// {
+//     if (!stack)
+//     {
+//         printf("Стек пуст.\n");
+//         return;
+//     }
+//     printf("Стек содержит:\n");
+//     while (stack)
+//     {
+//         printf("%d ", stack->value);
+//         stack = stack->next;
+//     }
+//     printf("\n");
+// }
 
 int main(int argc, char **argv)
 {
@@ -37,12 +36,14 @@ int main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	
+
 	if (argc < 2 || !argv[1][0])
 		return (1);
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
+		if (!argv)
+			free(argv);
 	}
 	init_stack_a(&a, argv + 1);
 	if (!stack_is_sorted(a))
@@ -54,6 +55,6 @@ int main(int argc, char **argv)
 		else
 			sort_stack(&a, &b);
 	}
-	print_stack(a);
+	// print_stack(a);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:24:41 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/15 15:16:07 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:03:38 by edouard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ void sort_stack(t_stack **a, t_stack **b)
 
 	len_a = stack_len(*a);
 	// Push elements from 'a' to 'b' and sort 'a' if it has more than 3 elements and is not sorted.
-	while (len_a-- > 3 && !stack_is_sorted(*a))
-	{
+	if (len_a-- > 3 && !stack_is_sorted(*a)) // If stack `a` has more than three nodes and aren't sorted
 		pb(b, a, false);
-		init_nodes_a(*a, *b);
-		move_a_to_b(a, b);
+	if (len_a-- > 3 && !stack_is_sorted(*a)) // If stack `a` still has more than three nodes and aren't sorted
+		pb(b, a, false);
+	while (len_a-- > 3 && !stack_is_sorted(*a)) // If stack `a` still has more than three nodes and aren't sorted
+	{
+		init_nodes_a(*a, *b); // Iniate all nodes from both stacks
+		move_a_to_b(a, b);	 // Move the cheapest `a` nodes into a sorted stack `b`, until three nodes are left in stack `a`
 	}
-	// Sort the top three elements in 'a'.
 	sort_three(a);
 	// Move elements back from 'b' to 'a' and sort them.
 	while (*b)
