@@ -2,15 +2,14 @@ NAME = push_swap
 CC = gcc -g
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I./printf
+INCLUDES = -I./includes -I./printf
 
 LIBFTPRINTF = ./printf/libftprintf.a
 
-SRCS = operations/init_b.c operations/move.c operations/outils_operations.c \
-       operations/push.c operations/rotate.c operations/rrr_rotate.c \
-       operations/sort_three.c operations/swap.c \
-       check_errors.c ft_atoi.c ft_calloc.c ft_split.c init_stack.c \
-       push_swap.c sort_stack.c utils.c
+SRCS = src/commands/push.c src/commands/rev_rotate.c src/commands/rotate.c \
+       src/commands/sort_stacks.c src/commands/sort_three.c src/commands/swap.c \
+       src/push_swap/handle_errors.c src/push_swap/init_a_to_b.c src/push_swap/init_b_to_a.c \
+       src/push_swap/push_swap.c src/push_swap/split.c src/push_swap/stack_init.c src/push_swap/stack_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
