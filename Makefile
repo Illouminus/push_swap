@@ -1,5 +1,5 @@
 NAME = push_swap
-CC = gcc -g
+CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./includes -I./printf
