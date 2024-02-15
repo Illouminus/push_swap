@@ -6,7 +6,7 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:11:57 by edouard           #+#    #+#             */
-/*   Updated: 2024/02/15 15:01:13 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:40:26 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static char *get_next_word(char *s, char c)
  * @return An array of substrings.
  */
 
-char **ft_split(char *s, char c)
+char **ft_split_push_swap(char *s, char c)
 {
 	int words_count;
 	char **result_array;

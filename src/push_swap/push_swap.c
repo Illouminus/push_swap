@@ -6,7 +6,7 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:10:17 by edouard           #+#    #+#             */
-/*   Updated: 2024/02/15 15:16:23 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:40:10 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		return (1);
 
 	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
+		argv = ft_split_push_swap(argv[1], ' ');
 
 	init_stack_a(&a, argv + 1);
 

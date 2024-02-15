@@ -6,7 +6,7 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:49 by ebaillot          #+#    #+#             */
-/*   Updated: 2024/02/15 17:26:18 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:38:46 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
+		argv = ft_split_push_swap(argv[1], ' ');
 	init_stack_a(&a, argv + 1);
 	line = get_next_line(0);
 	if (!line && !stack_sorted(a))

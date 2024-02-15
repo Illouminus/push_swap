@@ -51,7 +51,7 @@ void set_cheapest(t_stack_node *stack);
 t_stack_node *get_cheapest(t_stack_node *stack);
 void prep_for_push(t_stack_node **s, t_stack_node *n, char c);
 void init_stack_a(t_stack_node **a, char **argv);
-char **ft_split(char *s, char c);
+char **ft_split_push_swap(char *s, char c);
 
 // Stack utils
 int stack_len(t_stack_node *stack);
