@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_a_to_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:05:37 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/17 16:28:11 by edouard          ###   ########.fr       */
+/*   Updated: 2024/02/15 14:21:34 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,25 @@ static void set_target_a(t_stack_node *a, t_stack_node *b)
  */
 static void cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
-	int len_a = stack_len(a);
-	int len_b = stack_len(b);
+    int len_a = stack_len(a); // Получаем длину стека a
+    int len_b = stack_len(b); // Получаем длину стека b
 
-	while (a)
-	{
-		a->push_cost = a->above_median ? a->index : len_a - a->index;
-		a->push_cost += a->target_node->above_median ? a->target_node->index : len_b - a->target_node->index;
-		a = a->next;
-	}
+    while (a) // Проходим по всем элементам стека a
+    {
+        if (a->above_median)
+            a->push_cost = a->index;
+        else
+            a->push_cost = len_a - a->index;
+
+        if (a->target_node->above_median)
+            a->push_cost += a->target_node->index;
+        else
+            a->push_cost += len_b - a->target_node->index;
+
+        a = a->next; // Переходим к следующему узлу в стеке a
+    }
 }
+
 
 /**
  * Identifies and marks the cheapest node to push in the stack.

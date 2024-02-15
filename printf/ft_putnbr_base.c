@@ -6,13 +6,13 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:27:55 by ebaillot          #+#    #+#             */
-/*   Updated: 2024/01/03 13:43:55 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:01:54 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_strlen(char *str)
+unsigned int	ft_strlen_printf(char *str)
 {
 	unsigned int	length;
 
@@ -32,7 +32,7 @@ int	check_base(char *base)
 
 	i = 0;
 	prev_char = '\0';
-	if (ft_strlen(base) < 1)
+	if (ft_strlen_printf(base) < 1)
 		return (0);
 	while (base[i])
 	{
@@ -53,7 +53,7 @@ int	ft_putnbr_base(unsigned long nbr, char *base)
 	int				count;
 
 	count = 0;
-	length_base = ft_strlen(base);
+	length_base = ft_strlen_printf(base);
 	if (!check_base(base))
 		return (0);
 	if (nbr >= length_base)

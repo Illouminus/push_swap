@@ -3,30 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:11:57 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/17 16:48:06 by edouard          ###   ########.fr       */
+/*   Updated: 2024/02/15 15:01:13 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void free_split(char **split)
-{
-	int i;
-
-	i = 0;
-	if (split)
-	{
-		while (split[i])
-		{
-			free(split[i]);
-			i++;
-		}
-		free(split);
-	}
-}
 
 /**
  * Counts the number of words in a string separated by a given delimiter.
@@ -66,11 +51,12 @@ static int count_words(char *s, char c)
  */
 static char *get_next_word(char *s, char c)
 {
-	static int cursor = 0;
+	static int cursor;
 	char *next_word;
 	int len;
 	int i;
 
+	cursor = 0;
 	len = 0;
 	i = 0;
 	while (s[cursor] == c)
@@ -93,7 +79,7 @@ static char *get_next_word(char *s, char c)
  * @return An array of substrings.
  */
 
-char **split(char *s, char c)
+char **ft_split(char *s, char c)
 {
 	int words_count;
 	char **result_array;
@@ -112,13 +98,9 @@ char **split(char *s, char c)
 		{
 			result_array[i] = malloc(sizeof(char));
 			if (!result_array[i])
-			{
-				free_split(&result_array[i]);
 				return (NULL);
-			}
-
 			result_array[i++][0] = '\0';
-			continue;
+			continue ;
 		}
 		result_array[i++] = get_next_word(s, c);
 	}

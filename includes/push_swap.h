@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "../printf/ft_printf.h"
+#include "../libft/libft.h"
 
 typedef struct s_stack_node // A container of data enclosed in {} braces. `s_` for struct
 {
@@ -50,7 +51,7 @@ void set_cheapest(t_stack_node *stack);
 t_stack_node *get_cheapest(t_stack_node *stack);
 void prep_for_push(t_stack_node **s, t_stack_node *n, char c);
 void init_stack_a(t_stack_node **a, char **argv);
-char **split(char *s, char c);
+char **ft_split(char *s, char c);
 
 // Stack utils
 int stack_len(t_stack_node *stack);

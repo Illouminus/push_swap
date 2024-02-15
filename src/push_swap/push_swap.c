@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:10:17 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/17 16:40:01 by edouard          ###   ########.fr       */
+/*   Updated: 2024/02/15 15:16:23 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,11 @@ int main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 
-	// Handle case where numbers are passed as a single string
 	if (argc == 2)
-		argv = split(argv[1], ' ');
+		argv = ft_split(argv[1], ' ');
 
-	// Initialize stack 'a' and handle errors
 	init_stack_a(&a, argv + 1);
 
-	// Check if stack 'a' is already sorted
 	if (!stack_sorted(a))
 	{
 		int len_a = stack_len(a);
@@ -46,8 +43,6 @@ int main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b); // Sort larger stacks
 	}
-
-	// Clean up and free the stack
 	free_stack(&a);
 	return (0);
 }

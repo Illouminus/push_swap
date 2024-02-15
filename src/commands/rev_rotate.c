@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:51:08 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/17 16:28:38 by edouard          ###   ########.fr       */
+/*   Updated: 2024/02/15 13:53:40 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
  * Rotates a stack by moving the bottom node to the top.
  * @param stack The stack to perform the reverse rotation on.
  */
+
 static void rev_rotate(t_stack_node **stack)
 {
 	t_stack_node *last;
