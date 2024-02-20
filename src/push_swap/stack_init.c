@@ -6,7 +6,7 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:18:12 by edouard           #+#    #+#             */
-/*   Updated: 2024/02/15 14:55:51 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:27:05 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
  * @param s The string to convert.
  * @return The long integer representation of the string.
  */
-static long ft_atol(const char *s)
+static long	ft_atol(const char *s)
 {
-	long result = 0;
-	int sign = 1;
+	long	result;
+	int		sign;
 
-	while (*s == ' ' || *s == '\t' || *s == '\n' ||
-			 *s == '\r' || *s == '\f' || *s == '\v')
+	result = 0;
+	sign = 1;
+	while (*s == ' ' || *s == '\t' || *s == '\n' || *s == '\r' || *s == '\f'
+		|| *s == '\v')
 		s++;
 	if (*s == '-' || *s == '+')
 	{
@@ -33,7 +35,7 @@ static long ft_atol(const char *s)
 	}
 	while (ft_isdigit(*s))
 		result = result * 10 + (*s++ - '0');
-	return result * sign;
+	return (result * sign);
 }
 
 /**
@@ -41,18 +43,18 @@ static long ft_atol(const char *s)
  * @param stack The stack to append to.
  * @param n The value to be added.
  */
-static void append_node(t_stack_node **stack, int n)
+static void	append_node(t_stack_node **stack, int n)
 {
+	t_stack_node	*node;
+	t_stack_node	*last_node;
+
 	if (!stack)
-		return;
-
-	t_stack_node *node = malloc(sizeof(t_stack_node));
+		return ;
+	node = malloc(sizeof(t_stack_node));
 	if (!node)
-		return;
-
+		return ;
 	node->next = NULL;
 	node->nbr = n;
-
 	if (!(*stack))
 	{
 		*stack = node;
@@ -60,7 +62,7 @@ static void append_node(t_stack_node **stack, int n)
 	}
 	else
 	{
-		t_stack_node *last_node = find_last(*stack);
+		last_node = find_last(*stack);
 		last_node->next = node;
 		node->prev = last_node;
 	}
@@ -71,11 +73,12 @@ static void append_node(t_stack_node **stack, int n)
  * @param a The stack to initialize.
  * @param argv The values to add to the stack.
  */
-void init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv)
 {
-	long n;
-	int i = 0;
+	long	n;
+	int		i;
 
+	i = 0;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
@@ -95,15 +98,15 @@ void init_stack_a(t_stack_node **a, char **argv)
  * @param stack The stack to search in.
  * @return Pointer to the cheapest node, or NULL if none found.
  */
-t_stack_node *get_cheapest(t_stack_node *stack)
+t_stack_node	*get_cheapest(t_stack_node *stack)
 {
 	while (stack)
 	{
 		if (stack->cheapest)
-			return stack;
+			return (stack);
 		stack = stack->next;
 	}
-	return NULL;
+	return (NULL);
 }
 
 /**
@@ -112,7 +115,8 @@ t_stack_node *get_cheapest(t_stack_node *stack)
  * @param top_node The node to move to the top of the stack.
  * @param stack_name The name of the stack ('a' or 'b').
  */
-void prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+void	prep_for_push(t_stack_node **stack, t_stack_node *top_node,
+		char stack_name)
 {
 	while (*stack != top_node)
 	{

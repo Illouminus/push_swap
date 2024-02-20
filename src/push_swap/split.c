@@ -6,12 +6,11 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:11:57 by edouard           #+#    #+#             */
-/*   Updated: 2024/02/15 17:40:26 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:40:52 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
 
 /**
  * Counts the number of words in a string separated by a given delimiter.
@@ -19,10 +18,10 @@
  * @param c The delimiter character.
  * @return The count of words in the string.
  */
-static int count_words(char *s, char c)
+static int	count_words(char *s, char c)
 {
-	int count;
-	bool inside_word;
+	int		count;
+	bool	inside_word;
 
 	count = 0;
 	while (*s)
@@ -49,14 +48,13 @@ static int count_words(char *s, char c)
  * @param c The delimiter character.
  * @return A pointer to the extracted word.
  */
-static char *get_next_word(char *s, char c)
+static char	*get_next_word(char *s, char c)
 {
-	static int cursor;
-	char *next_word;
-	int len;
-	int i;
+	static int	cursor = 0;
+	char		*next_word;
+	int			len;
+	int			i;
 
-	cursor = 0;
 	len = 0;
 	i = 0;
 	while (s[cursor] == c)
@@ -79,11 +77,11 @@ static char *get_next_word(char *s, char c)
  * @return An array of substrings.
  */
 
-char **ft_split_push_swap(char *s, char c)
+char	**ft_split_push_swap(char *s, char c)
 {
-	int words_count;
-	char **result_array;
-	int i;
+	int		words_count;
+	char	**result_array;
+	int		i;
 
 	i = 0;
 	words_count = count_words(s, c);

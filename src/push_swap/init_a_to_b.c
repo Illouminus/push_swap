@@ -6,7 +6,7 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:05:37 by edouard           #+#    #+#             */
-/*   Updated: 2024/02/15 14:21:34 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:39:31 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
  * Sets the index and median status for each node in the stack.
  * @param stack The stack whose nodes are to be indexed.
  */
-void current_index(t_stack_node *stack)
+void	current_index(t_stack_node *stack)
 {
-	int i = 0;
-	int median;
+	int	i;
+	int	median;
 
+	i = 0;
 	if (!stack)
-		return;
-
+		return ;
 	median = stack_len(stack) / 2;
 	while (stack)
 	{
@@ -35,18 +35,23 @@ void current_index(t_stack_node *stack)
 }
 
 /**
- * Sets the target node for each node in stack 'a' based on its position relative to stack 'b'.
+	* Sets the target node for each node in
+		stack 'a' based on its position relative to stack 'b'.
  * @param a Stack 'a' to set target nodes for.
  * @param b Stack 'b' to use as reference.
  */
-static void set_target_a(t_stack_node *a, t_stack_node *b)
+
+static void	set_target_a(t_stack_node *a, t_stack_node *b)
+
 {
+	t_stack_node	*current_b;
+	t_stack_node	*target_node;
+	long			best_match_index;
+
 	while (a)
 	{
-		long best_match_index = LONG_MIN;
-		t_stack_node *current_b = b;
-		t_stack_node *target_node;
-
+		best_match_index = LONG_MIN;
+		current_b = b;
 		while (current_b)
 		{
 			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
@@ -56,48 +61,52 @@ static void set_target_a(t_stack_node *a, t_stack_node *b)
 			}
 			current_b = current_b->next;
 		}
-
-		a->target_node = (best_match_index == LONG_MIN) ? find_max(b) : target_node;
+		if (best_match_index == LONG_MIN)
+			a->target_node = find_max(b);
+		else
+			a->target_node = target_node;
 		a = a->next;
 	}
 }
 
 /**
- * Analyzes and assigns the cost of pushing each node in stack 'a' to its target position in stack 'b'.
+	* Analyzes and assigns the cost of
+	pushing each node in stack 'a' to its target position in stack 'b'.
  * @param a Stack 'a' for cost analysis.
  * @param b Stack 'b' for reference.
  */
-static void cost_analysis_a(t_stack_node *a, t_stack_node *b)
+static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
-    int len_a = stack_len(a); // Получаем длину стека a
-    int len_b = stack_len(b); // Получаем длину стека b
+	int	len_a;
+	int	len_b;
 
-    while (a) // Проходим по всем элементам стека a
-    {
-        if (a->above_median)
-            a->push_cost = a->index;
-        else
-            a->push_cost = len_a - a->index;
-
-        if (a->target_node->above_median)
-            a->push_cost += a->target_node->index;
-        else
-            a->push_cost += len_b - a->target_node->index;
-
-        a = a->next; // Переходим к следующему узлу в стеке a
-    }
+	len_a = stack_len(a);
+	len_b = stack_len(b);
+	while (a)
+	{
+		if (a->above_median)
+			a->push_cost = a->index;
+		else
+			a->push_cost = len_a - a->index;
+		if (a->target_node->above_median)
+			a->push_cost += a->target_node->index;
+		else
+			a->push_cost += len_b - a->target_node->index;
+		a = a->next;
+	}
 }
-
 
 /**
  * Identifies and marks the cheapest node to push in the stack.
  * @param stack The stack to evaluate for the cheapest push cost.
  */
-void set_cheapest(t_stack_node *stack)
+void	set_cheapest(t_stack_node *stack)
 {
-	long cheapest_value = LONG_MAX;
-	t_stack_node *cheapest_node = NULL;
+	long			cheapest_value;
+	t_stack_node	*cheapest_node;
 
+	cheapest_value = LONG_MAX;
+	cheapest_node = NULL;
 	while (stack)
 	{
 		if (stack->push_cost < cheapest_value)
@@ -107,17 +116,17 @@ void set_cheapest(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-
 	if (cheapest_node)
 		cheapest_node->cheapest = true;
 }
 
 /**
- * Initializes nodes in stack 'a' by setting their indices, targets, costs, and identifying the cheapest node.
+ * Initializes nodes in stack 'a' by setting
+ * their indices, targets, costs, and identifying the cheapest node.
  * @param a Stack 'a' to initialize.
  * @param b Stack 'b' used as reference.
  */
-void init_nodes_a(t_stack_node *a, t_stack_node *b)
+void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);
 	current_index(b);

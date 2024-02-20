@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edouard <edouard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:19:25 by edouard           #+#    #+#             */
-/*   Updated: 2024/01/17 16:28:27 by edouard          ###   ########.fr       */
+/*   Updated: 2024/02/20 14:27:17 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@
  * @param stack The stack to measure.
  * @return The length of the stack.
  */
-int stack_len(t_stack_node *stack)
+int	stack_len(t_stack_node *stack)
 {
-	int count = 0;
+	int	count;
 
+	count = 0;
 	while (stack)
 	{
 		count++;
 		stack = stack->next;
 	}
-	return count;
+	return (count);
 }
 
 /**
@@ -34,15 +35,13 @@ int stack_len(t_stack_node *stack)
  * @param stack The stack to examine.
  * @return The last node of the stack, or NULL if the stack is empty.
  */
-t_stack_node *find_last(t_stack_node *stack)
+t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)
-		return NULL;
-
+		return (NULL);
 	while (stack->next)
 		stack = stack->next;
-
-	return stack;
+	return (stack);
 }
 
 /**
@@ -50,18 +49,17 @@ t_stack_node *find_last(t_stack_node *stack)
  * @param stack The stack to check.
  * @return true if the stack is sorted, false otherwise.
  */
-bool stack_sorted(t_stack_node *stack)
+bool	stack_sorted(t_stack_node *stack)
 {
 	if (!stack)
-		return true;
-
+		return (true);
 	while (stack->next)
 	{
 		if (stack->nbr > stack->next->nbr)
-			return false;
+			return (false);
 		stack = stack->next;
 	}
-	return true;
+	return (true);
 }
 
 /**
@@ -69,11 +67,13 @@ bool stack_sorted(t_stack_node *stack)
  * @param stack The stack to search.
  * @return The node with the smallest value, or NULL if the stack is empty.
  */
-t_stack_node *find_min(t_stack_node *stack)
+t_stack_node	*find_min(t_stack_node *stack)
 {
-	long min = LONG_MAX;
-	t_stack_node *min_node = NULL;
+	long			min;
+	t_stack_node	*min_node;
 
+	min = LONG_MAX;
+	min_node = NULL;
 	while (stack)
 	{
 		if (stack->nbr < min)
@@ -83,7 +83,7 @@ t_stack_node *find_min(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	return min_node;
+	return (min_node);
 }
 
 /**
@@ -91,11 +91,13 @@ t_stack_node *find_min(t_stack_node *stack)
  * @param stack The stack to search.
  * @return The node with the largest value, or NULL if the stack is empty.
  */
-t_stack_node *find_max(t_stack_node *stack)
+t_stack_node	*find_max(t_stack_node *stack)
 {
-	long max = LONG_MIN;
-	t_stack_node *max_node = NULL;
+	long			max;
+	t_stack_node	*max_node;
 
+	max = LONG_MIN;
+	max_node = NULL;
 	while (stack)
 	{
 		if (stack->nbr > max)
@@ -105,5 +107,5 @@ t_stack_node *find_max(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	return max_node;
+	return (max_node);
 }

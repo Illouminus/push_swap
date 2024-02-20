@@ -6,7 +6,7 @@
 /*   By: ebaillot <ebaillot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:51:08 by edouard           #+#    #+#             */
-/*   Updated: 2024/02/15 13:53:40 by ebaillot         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:28:02 by ebaillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,28 @@
  * @param stack The stack to perform the reverse rotation on.
  */
 
-static void rev_rotate(t_stack_node **stack)
+static void	rev_rotate(t_stack_node **stack)
 {
-	t_stack_node *last;
+	t_stack_node	*last;
 
-	// Return if the stack is empty or has only one node
 	if (!*stack || !(*stack)->next)
-		return;
-
-	// Detach the last node and reposition it as the first node
+		return ;
 	last = find_last(*stack);
-	last->prev->next = NULL; // Set the second-to-last node as the new last node
-	last->next = *stack;		 // Set the last node to point to the original top node
-	last->prev = NULL;		 // Detach the last node from its previous position
-	(*stack)->prev = last;	 // Update the previous top node to recognize the new top node
-	*stack = last;				 // Set the last node as the new top node
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	(*stack)->prev = last;
+	*stack = last;
 }
 
 /**
- * Performs the 'rra' operation: reverse rotates the stack 'a'.
+ * Performs the 'rra' operation:
+ * reverse rotates the stack 'a'.
  * Optionally prints the operation.
  * @param a Pointer to the top of stack 'a'.
  * @param print Flag to print the operation.
  */
-void rra(t_stack_node **a, bool print)
+void	rra(t_stack_node **a, bool print)
 {
 	rev_rotate(a);
 	if (!print)
@@ -48,12 +46,13 @@ void rra(t_stack_node **a, bool print)
 }
 
 /**
- * Performs the 'rrb' operation: reverse rotates the stack 'b'.
+ * Performs the 'rrb' operation:
+ * reverse rotates the stack 'b'.
  * Optionally prints the operation.
  * @param b Pointer to the top of stack 'b'.
  * @param print Flag to print the operation.
  */
-void rrb(t_stack_node **b, bool print)
+void	rrb(t_stack_node **b, bool print)
 {
 	rev_rotate(b);
 	if (!print)
@@ -61,13 +60,15 @@ void rrb(t_stack_node **b, bool print)
 }
 
 /**
- * Performs the 'rrr' operation: simultaneously reverse rotates both stacks 'a' and 'b'.
+
+	* Performs the 'rrr' operation:
+	simultaneously reverse rotates both stacks 'a' and 'b'.
  * Optionally prints the operation.
  * @param a Pointer to the top of stack 'a'.
  * @param b Pointer to the top of stack 'b'.
  * @param print Flag to print the operation.
  */
-void rrr(t_stack_node **a, t_stack_node **b, bool print)
+void	rrr(t_stack_node **a, t_stack_node **b, bool print)
 {
 	rev_rotate(a);
 	rev_rotate(b);
